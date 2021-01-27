@@ -72,7 +72,7 @@ jobs:
 
       - name: Run tests
         run: |
-          testthat::test_dir('tests')
+          testthat::test_file('my_test.R')
         shell: Rscript {0}
 
       - name: Check
