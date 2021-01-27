@@ -32,8 +32,6 @@ jobs:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      MY_SECRET: ${{ secrets.MY_SECRET }}
-      MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
     steps:
 
@@ -46,6 +44,9 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - uses: Actions-R-Us/default-env@v1
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+          MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
       - name: Query dependencies
         run: |
@@ -77,9 +78,6 @@ jobs:
         shell: Rscript {0}
 
       - name: Run Tests
-        env:
-          MY_SECRET: ${{ secrets.MY_SECRET }}
-          MY_SECRET2: ${{ secrets.MY_SECRET2 }}
         run: |
           testthat::test_file('my_test.R')
         shell: Rscript {0}
