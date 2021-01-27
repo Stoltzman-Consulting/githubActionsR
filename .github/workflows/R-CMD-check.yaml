@@ -34,7 +34,7 @@ jobs:
       MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
     steps:
-      - run: 'echo "$MY_SECRET2" > .Renviron'
+      - run: 'echo "$MY_SECRET2" > ~/.Renviron'
         shell: bash
 
       - uses: actions/checkout@v2
