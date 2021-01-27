@@ -7,3 +7,10 @@ test_that("Environment variable 2 exists", {
   expect_equal(Sys.getenv('MY_VARIABLE2'), 'i_want_this_2')
 })
 
+test_that("Environment variable 2 exists", {
+  expect_equal('i_want_this_2', Sys.getenv('MY_VARIABLE2'))
+})
+
+test_that("Environment variable 2 exists", {
+  expect_equal('blah_1', 'blah_2')
+})
