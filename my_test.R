@@ -4,47 +4,47 @@ test_that("multiplication works", {
 
 
 test_that("Environment variable 1 exists left", {
-  expect_equal(Sys.getenv('MY_VARIABLE'), 'i_want_this')
+  expect_equal(Sys.getenv('MY_SECRET'), 'i_want_this')
 })
 
 test_that("Environment variable 1 exists right", {
-  expect_equal('i_want_this', Sys.getenv('MY_VARIABLE'))
+  expect_equal('i_want_this', Sys.getenv('MY_SECRET'))
 })
 
 test_that("Environment variable 1 exists blank left", {
-  expect_equal(Sys.getenv('MY_VARIABLE'), '')
+  expect_equal(Sys.getenv('MY_SECRET'), '')
 })
 
 test_that("Environment variable 1 exists blank right", {
-  expect_equal('', Sys.getenv('MY_VARIABLE'))
+  expect_equal('', Sys.getenv('MY_SECRET'))
 })
 
 
 
 
 test_that("Environment variable 2 left", {
-  expect_equal(Sys.getenv('MY_VARIABLE2'), 'i_want_this_2')
+  expect_equal(Sys.getenv('MY_SECRET2'), 'i_want_this_2')
 })
 
 test_that("Environment variable 2 right", {
-  expect_equal('i_want_this_2', Sys.getenv('MY_VARIABLE2'))
+  expect_equal('i_want_this_2', Sys.getenv('MY_SECRET2'))
 })
 
 
 test_that("Environment variable 2 exists star left", {
-  expect_equal(Sys.getenv('MY_VARIABLE2'), "***")
+  expect_equal(Sys.getenv('MY_SECRET2'), "***")
 })
 
 test_that("Environment variable 2 exists star right", {
-  expect_equal("***", Sys.getenv('MY_VARIABLE2'))
+  expect_equal("***", Sys.getenv('MY_SECRET2'))
 })
 
 test_that("Environment variable 2 exists", {
-  expect_equal(Sys.getenv('MY_VARIABLE2'), "")
+  expect_equal(Sys.getenv('MY_SECRET2'), "")
 })
 
 test_that("Environment variable 2 exists", {
-  expect_equal("", Sys.getenv('MY_VARIABLE2'))
+  expect_equal("", Sys.getenv('MY_SECRET2'))
 })
 
 test_that("Environment variable blah exists", {
