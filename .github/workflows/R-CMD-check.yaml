@@ -74,10 +74,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Run Tests
-        env:
-          MY_SECRET2: ${{ secrets.MY_SECRET2 }}
         run: |
-          Sys.setenv(MY_SECRET2 = "$MY_SECRET2")
           testthat::test_file('my_test.R')
         shell: Rscript {0}
 
