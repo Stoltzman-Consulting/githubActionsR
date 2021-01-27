@@ -29,9 +29,10 @@ jobs:
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+      MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
     steps:
 
@@ -42,11 +43,6 @@ jobs:
           r-version: ${{ matrix.config.r }}
 
       - uses: r-lib/actions/setup-pandoc@v1
-
-      - uses: Actions-R-Us/default-env@v1
-        env:
-          MY_SECRET: ${{ secrets.MY_SECRET }}
-          MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
       - name: Query dependencies
         run: |
