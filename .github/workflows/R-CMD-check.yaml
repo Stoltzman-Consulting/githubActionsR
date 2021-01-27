@@ -32,6 +32,7 @@ jobs:
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       MY_SECRET: ${{ secrets.MY_SECRET }}
+      MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
     steps:
       - uses: actions/checkout@v2
@@ -73,7 +74,8 @@ jobs:
 
       - name: Run tests
         run: |
-          Sys.setenv(MY_SECRET = 'i_want_this')
+          Sys.setenv(MY_SECRET = ${{ env.MY_SECRET }})
+          Sys.setenv(MY_SECRET2 = ${{ env.MY_SECRET2 }})
           testthat::test_file('my_test.R')
         shell: Rscript {0}
 
