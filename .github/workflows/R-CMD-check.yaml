@@ -31,6 +31,7 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
     steps:
 
@@ -71,16 +72,11 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-      - name: Setup Renvironment
-        run: echo "MY_SECRET2" > ./.Renviron
-
-      - name: Run tests
+      - name: Run Tests
         env:
           MY_SECRET2: ${{ secrets.MY_SECRET2 }}
-        run: echo "$MY_SECRET2" | base64 -d > ./.Renviron
-
-      - name: Run Tests
         run: |
+          Sys.setenv(MY_SECRET2 = "$MY_SECRET2")
           testthat::test_file('my_test.R')
         shell: Rscript {0}
 
