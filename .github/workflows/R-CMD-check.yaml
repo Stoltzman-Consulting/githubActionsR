@@ -73,7 +73,7 @@ jobs:
 
       - name: Run tests
         run: |
-          Sys.setenv(MY_SECRET = ${{ env.MY_SECRET }})
+          Sys.setenv(MY_SECRET = 'i_want_this')
           testthat::test_file('my_test.R')
         shell: Rscript {0}
 
