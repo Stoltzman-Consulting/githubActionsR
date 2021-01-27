@@ -7,7 +7,3 @@ test_that("Environment variable 2 exists", {
   expect_equal(Sys.getenv('MY_VARIABLE2'), 'i_want_this_2')
 })
 
-
-test_that("Environment variable exists", {
-  expect_equal(Sys.getenv('MY_VARIABLE'), 'i_want_this')
-})
