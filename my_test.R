@@ -12,11 +12,11 @@ test_that("Environment variable 1 exists", {
 })
 
 test_that("Environment variable 2 exists", {
-  expect_equal(Sys.getenv('MY_VARIABLE2'), 'i_want_this_2')
+  expect_equal(Sys.getenv('MY_VARIABLE2'), "***")
 })
 
 test_that("Environment variable 2 exists", {
-  expect_equal('i_want_this_2', Sys.getenv('MY_VARIABLE2'))
+  expect_equal("***", Sys.getenv('MY_VARIABLE2'))
 })
 
 test_that("Environment variable 2 exists", {
