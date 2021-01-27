@@ -74,6 +74,9 @@ jobs:
         shell: Rscript {0}
 
       - name: Run Tests
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+          MY_SECRET2: ${{ secrets.MY_SECRET2 }}
         run: |
           testthat::test_file('my_test.R')
         shell: Rscript {0}
