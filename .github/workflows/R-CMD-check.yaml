@@ -45,7 +45,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: Write .Renviron
-        run: 'echo "$MY_SECRET" > .Renviron'
+        run: 'echo "$MY_SECRET" > ~/.Renviron'
         shell: bash
 
       - name: Query dependencies
