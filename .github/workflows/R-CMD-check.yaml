@@ -45,11 +45,8 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: Write .Renviron
-        run: |
-          echo "$MY_SECRET" > .Renviron
+        run: 'echo "$MY_SECRET" > .Renviron'
         shell: bash
-        env:
-          MY_SECRET: ${{ secrets.MY_SECRET }}
 
       - name: Query dependencies
         run: |
