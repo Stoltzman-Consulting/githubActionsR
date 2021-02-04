@@ -44,10 +44,6 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
-      - name: Write .Renviron
-        run: 'echo "$MY_SECRET" > ~/.Renviron'
-        shell: bash
-
       - name: Query dependencies
         run: |
           install.packages('remotes')
@@ -79,6 +75,8 @@ jobs:
 
       - name: Run Tests
         run: |
+          Sys.setenv(MY_SECRET=${{ secrets.MY_SECRET }})
+          Sys.setenv(MY_SECRET2=${{ secrets.MY_SECRET2 }})
           testthat::test_file('my_test.R')
         shell: Rscript {0}
 
