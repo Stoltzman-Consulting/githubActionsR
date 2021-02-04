@@ -31,8 +31,8 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      MY_SECRET: ${{ secrets.MY_SECRET }}
-
+      MY_SECRET: serious
+      MY_SECRET2: serious2
 
     steps:
 
@@ -45,14 +45,12 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: Set environment 1
-        run: 'echo MY_SECRET=haha >> ~/.Renviron'
+        run: 'echo MY_SECRET="$MY_SECRET" >> ~/.Renviron'
         shell: bash
 
       - name: Set environment 2
-        run: 'echo MY_SECRET2=haha2 >> ~/.Renviron'
+        run: 'echo MY_SECRET2="$MY_SECRET2" >> ~/.Renviron'
         shell: bash
-        env:
-          MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
       - name: Query dependencies
         run: |
