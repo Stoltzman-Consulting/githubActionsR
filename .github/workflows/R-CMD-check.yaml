@@ -31,8 +31,8 @@ jobs:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      MY_SECRET: i_want_this
-      MY_SECRET2: i_want_this_2
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+      MY_SECRET2: ${{ secrets.MY_SECRET2 }}
 
     steps:
 
