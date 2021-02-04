@@ -75,8 +75,8 @@ jobs:
 
       - name: Run Tests
         run: |
-          Sys.setenv(MY_SECRET=$MY_SECRET)
-          Sys.setenv(MY_SECRET2=$MY_SECRET2)
+          Sys.setenv(MY_SECRET=${{ env.MY_SECRET }})
+          Sys.setenv(MY_SECRET2=${{ env.MY_SECRET2 }})
           testthat::test_file('my_test.R')
         shell: Rscript {0}
 
