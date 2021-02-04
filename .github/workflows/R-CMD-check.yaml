@@ -45,11 +45,11 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: Set environment 1
-        run: 'echo MY_SECRET="$MY_SECRET" >> ~/.Renviron'
+        run: 'echo MY_SECRET=haha >> ~/.Renviron'
         shell: bash
 
       - name: Set environment 2
-        run: 'echo MY_SECRET2="$MY_SECRET2" >> ~/.Renviron'
+        run: 'echo MY_SECRET2=haha2 >> ~/.Renviron'
         shell: bash
         env:
           MY_SECRET2: ${{ secrets.MY_SECRET2 }}
